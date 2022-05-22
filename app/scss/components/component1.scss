@@ -1,5 +1,184 @@
 @use '../util' as *;
 @use '../globals' as *;
-body{
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $pale-Blue;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $pale-Blue;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $pale-Blue;
+}
+
+body {
     font-family: 'Libre Franklin', sans-serif;
+    font-size: 20px;
+    height: 100vh;
+    color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%padding-top {
+
+    padding-top: 1rem
+}
+
+main {
+    width: min(100% - 5rem, 500px);
+    height: 100vh;
+    text-align: center;
+
+
+
+}
+
+.hero {
+    &>* {
+        @extend %padding-top;
+
+    }
+
+    img {
+        padding-top: 3rem
+    }
+
+    ;
+
+    b {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: $very-Dark-Blue;
+    }
+
+    p:nth-of-type(2) {
+        color: $very-Dark-Blue;
+        font-size: .8rem;
+    }
+
+
+}
+
+.emailinput {
+    position: relative;
+    max-width: 300px;
+    display: flex;
+    margin: 0 auto;
+    gap: 10px;
+    flex-direction: column;
+   #message{
+        position: absolute; 
+        top: 70px;
+        left: 0;
+        color: red; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+         font-size: 0.8rem;
+         min-width: 200px;
+         
+
+        width: 100px; /* Need a specific value to work */
+    }
+
+
+    input {
+        outline: none;
+        border-radius: 20px;
+        border: 1px solid $pale-Blue;
+        color: $pale-Blue;
+        padding: .6rem 40px;
+        // font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .button {
+        margin-top: 20px;
+        background-color: $blue;
+        border: none;
+        border-radius: 20px;
+        color: #fff;
+        padding: .9rem;
+        
+        font-size: 0.6rem;
+        width: 100%;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $light-Red;
+        }
+    }
+
+}
+footer {
+
+padding-top: 5rem;
+
+.icons {
+
+    color: $blue;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    i.fa-brands {
+        display: inline-block;
+        border-radius: 50px;
+        box-shadow: 0 0 2px #888;
+        padding: 0.55em 0.6em;
+
+    }
+
+    .fa-brands:first-of-type {
+        padding: 0.4em 0.7em !important;
+        // color: red;
+    }
+
+}
+
+p {
+    padding-top: 10px;
+    font-size: .8rem;
+}
+
+}
+
+
+
+@media (min-width:48rem) {
+    main {
+        width: min(100% - 5rem, 1000px);
+    }
+
+    .emailinput {
+        flex-direction: row;
+        max-width: 600px;
+
+        input {
+            flex: 1 0 400px;
+        }
+       #message{
+            left: 30px !important;
+            margin-left: 0;
+        }
+    }
+
+    .hero {
+
+        width: 800px;
+    }
+    .button{
+        margin-top: 0 !important;
+    }
+    footer{
+        width: min(100% - 5rem, 1000px);
+
+    }
+
 }
